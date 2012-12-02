@@ -17,7 +17,9 @@
 package com.example.android.accelerometerplay;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -130,8 +132,6 @@ public class AccelerometerPlayActivity extends Activity {
 		private Bitmap mBitmap;
 		private Bitmap mWood;
 		private Paint line;
-		private Paint linex;
-		private Paint liney;
 		private float mXOrigin;
 		private float mYOrigin;
 		private float mSensorX;
@@ -250,7 +250,6 @@ public class AccelerometerPlayActivity extends Activity {
 				else if (y < ymin) { mPosY = ymin; }
 				int NewXBox = getBoxXFromPixel(xc + x*xs);
 				int NewYBox = getBoxYFromPixel(yc - y*ys);
-				boolean test = false;
 				if (NewXBox != mBoxX && NewYBox != mBoxY && mBoxX>=0 && mBoxY>=0 && NewXBox>=0&&NewYBox>=0){
 					/*int dx=NewXBox-mBoxX;
 					int dy=NewYBox-mBoxY;
@@ -529,7 +528,7 @@ public class AccelerometerPlayActivity extends Activity {
 			mSensorTimeStamp = event.timestamp;
 			mCpuTimeStamp = System.nanoTime();
 		}
-
+            
 		@Override
 		protected void onDraw(Canvas canvas) {
 
